@@ -690,12 +690,11 @@ body::before{
     });
   });
 
-  // Dock navigation (simple alert for now)
+  // Dock navigation (no popup)
   document.querySelectorAll('.dock-item').forEach(item => {
     item.addEventListener('click', () => {
       document.querySelectorAll('.dock-item').forEach(i => i.classList.remove('active'));
       item.classList.add('active');
-      alert('Switched to: ' + item.textContent.trim());
     });
   });
 </script>
