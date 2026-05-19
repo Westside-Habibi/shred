@@ -3,14 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="HB Shred" />
 <title>HB SHRED</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
-
 :root{
   --bg:#0a0a0f;
   --glass:rgba(255,255,255,.08);
@@ -22,681 +21,626 @@
   --cyan:#5AC8FA;
   --purple:#BF5AF2;
 }
-
-*{
-  box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
 body{
   margin:0;
-  font-family:Inter,sans-serif;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(10,132,255,.18), transparent 30%),
-    radial-gradient(circle at top right, rgba(191,90,242,.15), transparent 35%),
-    linear-gradient(180deg,#0a0a0f 0%, #111117 100%);
+    radial-gradient(circle at top left,rgba(10,132,255,.18),transparent 30%),
+    radial-gradient(circle at top right,rgba(191,90,242,.15),transparent 35%),
+    linear-gradient(180deg,#0a0a0f 0%,#111117 100%);
   color:var(--text);
   min-height:100vh;
   overflow-x:hidden;
 }
-
-/* animated aurora */
 body::before{
   content:"";
   position:fixed;
   inset:-20%;
   background:
-    radial-gradient(circle at 30% 20%, rgba(10,132,255,.18), transparent 25%),
-    radial-gradient(circle at 70% 40%, rgba(191,90,242,.15), transparent 30%),
-    radial-gradient(circle at 50% 80%, rgba(90,200,250,.12), transparent 28%);
+    radial-gradient(circle at 30% 20%,rgba(10,132,255,.18),transparent 25%),
+    radial-gradient(circle at 70% 40%,rgba(191,90,242,.15),transparent 30%),
+    radial-gradient(circle at 50% 80%,rgba(90,200,250,.12),transparent 28%);
   filter:blur(60px);
   animation:float 12s ease-in-out infinite alternate;
   z-index:-2;
 }
-
 @keyframes float{
-  from{ transform:translateY(-10px) translateX(-20px) scale(1);}
-  to{ transform:translateY(20px) translateX(20px) scale(1.1);}
+  from{transform:translateY(-10px) translateX(-20px) scale(1);}
+  to{transform:translateY(20px) translateX(20px) scale(1.1);}
 }
-
-.app{
-  max-width:430px;
-  margin:0 auto;
-  padding-bottom:140px;
-}
+.app{max-width:430px;margin:0 auto;padding-bottom:140px;}
 
 /* HEADER */
-
 .header{
-  position:sticky;
-  top:0;
-  z-index:50;
-  padding:
-    calc(env(safe-area-inset-top) + 16px)
-    20px
-    18px;
-    
+  position:sticky;top:0;z-index:50;
+  padding:calc(env(safe-area-inset-top)+16px) 20px 18px;
   backdrop-filter:blur(30px) saturate(180%);
   -webkit-backdrop-filter:blur(30px) saturate(180%);
-
   background:rgba(10,10,15,.45);
-
   border-bottom:1px solid rgba(255,255,255,.05);
 }
-
-.header-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.title{
-  font-size:38px;
-  font-weight:800;
-  letter-spacing:-2px;
-}
-
-.subtitle{
-  margin-top:5px;
-  color:var(--sub);
-  font-size:14px;
-  letter-spacing:-.2px;
-}
-
+.header-row{display:flex;justify-content:space-between;align-items:center;}
+.title{font-size:38px;font-weight:800;letter-spacing:-2px;}
+.subtitle{margin-top:5px;color:var(--sub);font-size:14px;letter-spacing:-.2px;}
 .sync-pill{
-  padding:10px 14px;
-  border-radius:999px;
-
+  padding:10px 14px;border-radius:999px;
   background:rgba(255,255,255,.06);
-
   border:1px solid rgba(255,255,255,.08);
-
   backdrop-filter:blur(20px);
-
-  font-size:12px;
-  color:#7dd3fc;
-  font-weight:600;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.06),
-    0 4px 20px rgba(0,0,0,.18);
+  font-size:12px;color:#7dd3fc;font-weight:600;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 4px 20px rgba(0,0,0,.18);
 }
 
 /* CONTENT */
+.content{padding:20px;}
 
-.content{
-  padding:20px;
-}
-
-/* GLASS CARD */
-
+/* GLASS */
 .glass{
   position:relative;
-
-  background:linear-gradient(
-    180deg,
-    rgba(255,255,255,.09),
-    rgba(255,255,255,.04)
-  );
-
+  background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.04));
   border:1px solid rgba(255,255,255,.09);
-
   backdrop-filter:blur(40px) saturate(180%);
   -webkit-backdrop-filter:blur(40px) saturate(180%);
-
-  border-radius:34px;
-
-  overflow:hidden;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.08),
-    0 10px 40px rgba(0,0,0,.35);
+  border-radius:34px;overflow:hidden;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 40px rgba(0,0,0,.35);
 }
-
-/* glow edge */
 .glass::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:inherit;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,.18),
-      transparent 30%
-    );
-
+  content:"";position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(135deg,rgba(255,255,255,.18),transparent 30%);
   pointer-events:none;
 }
 
+/* WEEK SCROLL */
+.week-scroll{
+  display:flex;gap:10px;overflow-x:auto;
+  padding-bottom:6px;margin-bottom:18px;
+  scrollbar-width:none;
+}
+.week-scroll::-webkit-scrollbar{display:none;}
+.week-chip{
+  flex-shrink:0;padding:10px 18px;border-radius:999px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+  font-size:13px;font-weight:600;color:#9ca3af;cursor:pointer;
+  white-space:nowrap;transition:.2s;
+}
+.week-chip.active{
+  background:linear-gradient(135deg,var(--blue),var(--purple));
+  border-color:transparent;color:#fff;
+  box-shadow:0 4px 18px rgba(10,132,255,.35);
+}
+
 /* HERO */
-
-.hero{
-  padding:28px;
-  margin-bottom:18px;
-}
-
-.hero-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-}
-
-.week-tag{
-  font-size:12px;
-  font-weight:700;
-  color:#7dd3fc;
-  letter-spacing:1px;
-  text-transform:uppercase;
-}
-
-.hero-title{
-  margin-top:10px;
-  font-size:34px;
-  font-weight:800;
-  line-height:1;
-  letter-spacing:-2px;
-}
-
-.hero-sub{
-  margin-top:10px;
-  color:#cbd5e1;
-  font-size:15px;
-  line-height:1.5;
-}
-
-/* floating orb */
-
+.hero{padding:28px;margin-bottom:18px;}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;}
+.week-tag{font-size:12px;font-weight:700;color:#7dd3fc;letter-spacing:1px;text-transform:uppercase;}
+.hero-title{margin-top:10px;font-size:34px;font-weight:800;line-height:1;letter-spacing:-2px;}
+.hero-sub{margin-top:10px;color:#cbd5e1;font-size:15px;line-height:1.5;}
 .orb{
-  width:68px;
-  height:68px;
-  border-radius:50%;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(10,132,255,.9),
-      rgba(191,90,242,.9)
-    );
-
-  box-shadow:
-    0 0 40px rgba(10,132,255,.5);
-
-  filter:saturate(140%);
+  width:68px;height:68px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(10,132,255,.9),rgba(191,90,242,.9));
+  box-shadow:0 0 40px rgba(10,132,255,.5);
+  filter:saturate(140%);flex-shrink:0;
 }
 
-/* DAY SCROLLER */
+/* PROGRESS */
+.prog-wrap{margin-top:16px;display:flex;align-items:center;gap:12px;}
+.prog-track{flex:1;height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;}
+.prog-bar{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--blue),var(--purple));transition:width .4s;}
+.prog-label{font-size:12px;font-weight:600;color:#7dd3fc;min-width:32px;text-align:right;}
 
-.days{
-  display:flex;
-  gap:12px;
-  overflow-x:auto;
-  padding-bottom:4px;
-  margin-bottom:20px;
-}
-
-.days::-webkit-scrollbar{
-  display:none;
-}
-
+/* DAYS */
+.days{display:flex;gap:12px;overflow-x:auto;padding-bottom:4px;margin-bottom:20px;scrollbar-width:none;}
+.days::-webkit-scrollbar{display:none;}
 .day{
-  min-width:82px;
-
-  padding:14px 10px;
-
-  border-radius:24px;
-
-  background:rgba(255,255,255,.05);
-
-  border:1px solid rgba(255,255,255,.08);
-
-  backdrop-filter:blur(20px);
-
-  text-align:center;
-
-  color:#9ca3af;
-
-  transition:.25s ease;
-
-  cursor:pointer;
+  min-width:82px;padding:14px 10px;border-radius:24px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(20px);text-align:center;color:#9ca3af;
+  transition:.25s ease;cursor:pointer;
 }
-
 .day.active{
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.18),
-      rgba(255,255,255,.08)
-    );
-
-  color:white;
-
-  transform:translateY(-2px);
-
-  box-shadow:
-    0 10px 30px rgba(10,132,255,.18);
+  background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.08));
+  color:white;transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(10,132,255,.18);
 }
-
-.day-letter{
-  font-size:22px;
-  font-weight:800;
-  letter-spacing:-1px;
-}
-
-.day-full{
-  margin-top:4px;
-  font-size:11px;
-}
+.day-letter{font-size:22px;font-weight:800;letter-spacing:-1px;}
+.day-full{margin-top:4px;font-size:11px;}
 
 /* SECTION */
-
-.section{
-  padding:24px;
-  margin-bottom:18px;
-}
-
-.section-label{
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  color:#7dd3fc;
-  font-weight:700;
-}
-
-.section-title{
-  margin-top:10px;
-  font-size:28px;
-  font-weight:800;
-  letter-spacing:-1.5px;
-}
-
-.section-sub{
-  margin-top:8px;
-  color:#cbd5e1;
-  line-height:1.6;
-  font-size:15px;
-}
+.section{padding:24px;margin-bottom:18px;}
+.section-label{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#7dd3fc;font-weight:700;}
+.section-title{margin-top:10px;font-size:28px;font-weight:800;letter-spacing:-1.5px;}
+.section-sub{margin-top:8px;color:#cbd5e1;line-height:1.6;font-size:15px;}
 
 /* INPUT */
-
 .input{
-  width:100%;
-  margin-top:18px;
-
-  border:none;
-  outline:none;
-
+  width:100%;margin-top:18px;outline:none;
   background:rgba(255,255,255,.06);
-
   border:1px solid rgba(255,255,255,.08);
-
-  color:white;
-
-  border-radius:22px;
-
-  padding:18px;
-
-  font-size:15px;
-
-  backdrop-filter:blur(20px);
-
-  transition:.2s;
+  color:white;border-radius:22px;padding:18px;font-size:15px;
+  font-family:Inter,-apple-system,sans-serif;
+  backdrop-filter:blur(20px);transition:.2s;
 }
-
-.input::placeholder{
-  color:#71717a;
-}
-
-.input:focus{
-  border-color:rgba(10,132,255,.7);
-
-  box-shadow:
-    0 0 0 4px rgba(10,132,255,.15);
-}
+.input::placeholder{color:#71717a;}
+.input:focus{border-color:rgba(10,132,255,.7);box-shadow:0 0 0 4px rgba(10,132,255,.15);}
 
 /* EXERCISE */
-
 .exercise{
-  margin-top:18px;
-
-  padding:22px;
-
-  border-radius:28px;
-
-  background:rgba(255,255,255,.04);
-
-  border:1px solid rgba(255,255,255,.06);
-
-  backdrop-filter:blur(20px);
+  margin-top:18px;padding:22px;border-radius:28px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);
+  backdrop-filter:blur(20px);cursor:pointer;transition:.2s;
 }
-
-.exercise-name{
-  font-size:20px;
-  font-weight:700;
-  letter-spacing:-.6px;
+.exercise:active{transform:scale(.99);}
+.exercise-header{display:flex;justify-content:space-between;align-items:flex-start;}
+.exercise-name{font-size:20px;font-weight:700;letter-spacing:-.6px;}
+.expand-icon{
+  width:30px;height:30px;border-radius:50%;
+  background:rgba(255,255,255,.08);border:none;
+  color:#9ca3af;font-size:16px;display:flex;align-items:center;
+  justify-content:center;flex-shrink:0;cursor:pointer;transition:.2s;
 }
-
-.badges{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-
-  margin-top:14px;
-}
-
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
 .badge{
-  padding:10px 14px;
-
-  border-radius:999px;
-
-  background:rgba(255,255,255,.06);
-
-  border:1px solid rgba(255,255,255,.06);
-
-  font-size:12px;
-  font-weight:600;
-
-  color:#e5e7eb;
+  padding:10px 14px;border-radius:999px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06);
+  font-size:12px;font-weight:600;color:#e5e7eb;
 }
+.badge-blue{background:rgba(10,132,255,.15);border-color:rgba(10,132,255,.25);color:#7dd3fc;}
+.badge-green{background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.22);color:#34d399;}
+.note{margin-top:16px;color:#cbd5e1;line-height:1.7;font-size:14px;}
 
-.note{
-  margin-top:16px;
+/* REST DAY */
+.rest-card{padding:36px 24px;text-align:center;}
+.rest-emoji{font-size:52px;margin-bottom:12px;}
+.rest-title{font-size:24px;font-weight:800;letter-spacing:-1px;}
+.rest-sub{margin-top:8px;color:#71717a;font-size:15px;line-height:1.6;}
 
-  color:#cbd5e1;
-
-  line-height:1.7;
-
-  font-size:14px;
-}
-
-/* bottom dock */
-
+/* DOCK */
 .dock{
-  position:fixed;
-  left:50%;
-  transform:translateX(-50%);
-  bottom:20px;
-
-  width:calc(100% - 40px);
-  max-width:390px;
-
-  padding:14px;
-
-  border-radius:30px;
-
-  background:rgba(255,255,255,.08);
-
+  position:fixed;left:50%;transform:translateX(-50%);
+  bottom:calc(env(safe-area-inset-bottom)+14px);
+  width:calc(100% - 40px);max-width:390px;
+  padding:14px;border-radius:30px;
+  background:rgba(20,20,28,.8);
   border:1px solid rgba(255,255,255,.08);
-
   backdrop-filter:blur(40px);
-
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-
-  box-shadow:
-    0 10px 40px rgba(0,0,0,.35);
+  display:flex;justify-content:space-around;align-items:center;
+  box-shadow:0 10px 40px rgba(0,0,0,.4);
 }
-
 .dock-item{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-
-  color:#9ca3af;
-
-  font-size:11px;
-
-  gap:5px;
+  display:flex;flex-direction:column;align-items:center;
+  color:#9ca3af;font-size:11px;gap:5px;cursor:pointer;
+  padding:4px 10px;transition:.2s;
 }
-
-.dock-item.active{
-  color:white;
-}
-
-.icon{
-  font-size:22px;
-}
-
-.footer-space{
-  height:100px;
-}
-
+.dock-item.active{color:white;}
+.icon{font-size:22px;}
 </style>
 </head>
-
 <body>
-
 <div class="app">
 
-  <!-- HEADER -->
-
   <div class="header">
-
     <div class="header-row">
-
       <div>
         <div class="title">HB Shred</div>
         <div class="subtitle">Performance Tracker</div>
       </div>
-
-      <div class="sync-pill">
-        Synced
-      </div>
-
+      <div class="sync-pill" id="syncPill">Saved</div>
     </div>
-
   </div>
-
-  <!-- CONTENT -->
 
   <div class="content">
+    <div class="week-scroll" id="weekScroll"></div>
 
-    <!-- HERO -->
-
-    <div class="glass hero">
-
+    <div class="glass hero" id="heroCard">
       <div class="hero-top">
-
         <div>
-          <div class="week-tag">Week 1</div>
-
-          <div class="hero-title">
-            Foundation<br>
-            & Form
-          </div>
-
-          <div class="hero-sub">
-            Learn the movement patterns.<br>
-            Build the base.
-          </div>
+          <div class="week-tag" id="heroTag">Week 1</div>
+          <div class="hero-title" id="heroTitle">Foundation &amp; Form</div>
+          <div class="hero-sub" id="heroSub">Learn the movement patterns.<br>Build the base.</div>
         </div>
-
-        <div class="orb"></div>
-
+        <div class="orb" id="heroOrb"></div>
       </div>
-
+      <div class="prog-wrap">
+        <div class="prog-track"><div class="prog-bar" id="progBar" style="width:0%"></div></div>
+        <div class="prog-label" id="progLabel">0%</div>
+      </div>
     </div>
 
-    <!-- DAYS -->
-
-    <div class="days">
-
-      <div class="day active">
-        <div class="day-letter">M</div>
-        <div class="day-full">MON</div>
-      </div>
-
-      <div class="day">
-        <div class="day-letter">T</div>
-        <div class="day-full">TUE</div>
-      </div>
-
-      <div class="day">
-        <div class="day-letter">W</div>
-        <div class="day-full">WED</div>
-      </div>
-
-      <div class="day">
-        <div class="day-letter">T</div>
-        <div class="day-full">THU</div>
-      </div>
-
-      <div class="day">
-        <div class="day-letter">F</div>
-        <div class="day-full">FRI</div>
-      </div>
-
-    </div>
-
-    <!-- BIKE -->
-
-    <div class="glass section">
-
-      <div class="section-label">
-        Morning Ride
-      </div>
-
-      <div class="section-title">
-        Moderate • 11 mi
-      </div>
-
-      <div class="section-sub">
-        Easy conversational pace.<br>
-        Stay smooth and relaxed.
-      </div>
-
-      <input class="input" placeholder="Ride notes or time..." />
-
-    </div>
-
-    <!-- WORKOUT -->
-
-    <div class="glass section">
-
-      <div class="section-label">
-        Strength Session
-      </div>
-
-      <div class="section-title">
-        Upper Body
-      </div>
-
-      <div class="section-sub">
-        Bench Press • Overhead Press • Battle Ropes
-      </div>
-
-      <!-- EXERCISE -->
-
-      <div class="exercise">
-
-        <div class="exercise-name">
-          Bench Press
-        </div>
-
-        <div class="badges">
-
-          <div class="badge">
-            4 Sets
-          </div>
-
-          <div class="badge">
-            6 Reps
-          </div>
-
-        </div>
-
-        <div class="note">
-          Start at 60% of estimated max.
-          Focus on controlled descent and clean movement.
-        </div>
-
-        <input class="input" placeholder="Weight used..." />
-
-      </div>
-
-      <!-- EXERCISE -->
-
-      <div class="exercise">
-
-        <div class="exercise-name">
-          Overhead Press
-        </div>
-
-        <div class="badges">
-
-          <div class="badge">
-            3 Sets
-          </div>
-
-          <div class="badge">
-            8 Reps
-          </div>
-
-        </div>
-
-        <div class="note">
-          Strict form. Build shoulder stability and pressing strength.
-        </div>
-
-        <input class="input" placeholder="Weight used..." />
-
-      </div>
-
-    </div>
-
-    <div class="footer-space"></div>
-
+    <div class="days" id="dayTabs"></div>
+    <div id="dayContent"></div>
   </div>
-
 </div>
-
-<!-- DOCK -->
 
 <div class="dock">
-
-  <div class="dock-item active">
-    <div class="icon">🏠</div>
-    <div>Home</div>
-  </div>
-
-  <div class="dock-item">
-    <div class="icon">📈</div>
-    <div>Progress</div>
-  </div>
-
-  <div class="dock-item">
-    <div class="icon">🏋️</div>
-    <div>Workouts</div>
-  </div>
-
-  <div class="dock-item">
-    <div class="icon">⚙️</div>
-    <div>Settings</div>
-  </div>
-
+  <div class="dock-item active"><div class="icon">🏠</div><div>Home</div></div>
+  <div class="dock-item"><div class="icon">📈</div><div>Progress</div></div>
+  <div class="dock-item"><div class="icon">🏋️</div><div>Workouts</div></div>
+  <div class="dock-item"><div class="icon">⚙️</div><div>Settings</div></div>
 </div>
-<script>
-  // Days
-  document.querySelectorAll('.day').forEach(day => {
-    day.addEventListener('click', () => {
-      document.querySelectorAll('.day').forEach(d => d.classList.remove('active'));
-      day.classList.add('active');
-    });
-  });
 
-  // Dock navigation (no popup)
-  document.querySelectorAll('.dock-item').forEach(item => {
-    item.addEventListener('click', () => {
-      document.querySelectorAll('.dock-item').forEach(i => i.classList.remove('active'));
-      item.classList.add('active');
-    });
-  });
+<script>
+var PROGRAM = [
+  {
+    title:"Foundation & Form",
+    sub:"Learn the movement patterns.<br>Build the base.",
+    orb:"linear-gradient(135deg,rgba(10,132,255,.9),rgba(191,90,242,.9))",
+    glow:"rgba(10,132,255,.5)",
+    days:[
+      {name:"Monday",bike:"Moderate • 11 mi",bikeDesc:"Easy conversational pace. Stay smooth and relaxed.",
+       lift:"Upper Body",liftFocus:"Bench Press • Overhead Press • Battle Ropes",
+       exercises:[
+        {name:"Bench Press",sets:"4",reps:"6",note:"Start at 60% of estimated max. Focus on controlled descent and clean movement."},
+        {name:"Overhead Press",sets:"3",reps:"8",note:"Strict form — no leg drive yet. Build shoulder stability and pressing strength."},
+        {name:"Barbell Row",sets:"3",reps:"10",note:"Keep back flat. Pull to the lower chest. Full control on the way down."},
+        {name:"Battle Ropes",sets:"4",reps:"30s on / 30s off",note:"Alternating waves. Stay low in the hips. Breathe through it."},
+        {name:"Plank",sets:"3",reps:"30 sec",note:"Core stability foundation. Squeeze glutes and brace hard."}
+       ]},
+      {name:"Tuesday",bike:"Push It • 11 mi",bikeDesc:"Go fast. Beat your Monday time. This is your hard ride day.",lift:null},
+      {name:"Wednesday",bike:"Easy/Recovery • 11 mi",bikeDesc:"Slow and relaxed. Active recovery. Save it for the lifts.",
+       lift:"Olympic Day A",liftFocus:"Power Clean • Front Squat • Core",
+       exercises:[
+        {name:"Hang Power Clean",sets:"5",reps:"3",note:"Week 1: keep it light (50–60%). Learn the pull and the catch position."},
+        {name:"Front Squat",sets:"4",reps:"5",note:"Elbows up, chest tall. Light weight — this teaches the clean rack position."},
+        {name:"Clean Pull",sets:"3",reps:"4",note:"From the floor, full extension through the hips. No catch yet."},
+        {name:"Battle Ropes",sets:"3",reps:"40s on / 20s off",note:"Double wave. Keep hips low and engaged."},
+        {name:"Ab Wheel / Hollow Hold",sets:"3",reps:"30 sec",note:"Olympic core stability base. Control the position."}
+       ]},
+      {name:"Thursday",bike:"Moderate • 11 mi",bikeDesc:"Steady effort. Keep it aerobic.",
+       lift:"Upper Body B",liftFocus:"Push / Pull • Battle Ropes Finisher",
+       exercises:[
+        {name:"Incline Bench Press",sets:"4",reps:"8",note:"Lighter than flat — upper chest and front delt focus."},
+        {name:"Barbell Row",sets:"4",reps:"6",note:"Pull to lower chest. Every rep from a dead stop if possible."},
+        {name:"Push Press",sets:"3",reps:"6",note:"Slight leg drive. Introduction to the jerk push pattern."},
+        {name:"Battle Ropes",sets:"5",reps:"30s on / 30s off",note:"Alternating. Last set — go all out."},
+        {name:"Face Pulls / Band Pull-Apart",sets:"3",reps:"15",note:"Shoulder health. Critical for all the overhead work ahead."}
+       ]},
+      {name:"Friday",bike:"Moderate • 11 mi",bikeDesc:"Steady. Save a little for the lifts.",
+       lift:"Olympic Day B",liftFocus:"Back Squat • Clean & Jerk • Pulls",
+       exercises:[
+        {name:"Back Squat",sets:"5",reps:"5",note:"Work up to a moderate 5RM. Week 1 — don't max out. Learn the pattern."},
+        {name:"Power Clean + Push Jerk",sets:"5",reps:"2+1",note:"Clean twice, jerk once per set. Keep it light. Perfect reps only."},
+        {name:"Romanian Deadlift",sets:"3",reps:"8",note:"Slow negative. Hamstring strength that feeds into the pull."},
+        {name:"Battle Ropes Finisher",sets:"5",reps:"30s on / 30s off",note:"Slam variation. End the week hard."}
+       ]}
+    ]
+  },
+  {
+    title:"Load & Adapt",
+    sub:"Add weight. Build confidence.",
+    orb:"linear-gradient(135deg,rgba(90,200,250,.9),rgba(10,132,255,.9))",
+    glow:"rgba(90,200,250,.45)",
+    days:[
+      {name:"Monday",bike:"Moderate • 11 mi",bikeDesc:"Steady pace. Slightly stronger effort than Week 1.",
+       lift:"Upper Body",liftFocus:"Add 5–10 lbs to all pressing movements",
+       exercises:[
+        {name:"Bench Press",sets:"4",reps:"6",note:"Add 5–10 lbs from Week 1. Same form, more load."},
+        {name:"Overhead Press",sets:"4",reps:"6",note:"Drop one rep, add weight. Strict still."},
+        {name:"Barbell Row",sets:"4",reps:"8",note:"Heavier. Controlled. No jerking the weight up."},
+        {name:"Battle Ropes",sets:"4",reps:"35s on / 25s off",note:"Slightly longer intervals. Stay consistent."},
+        {name:"Plank + Hip Dip",sets:"3",reps:"20 total",note:"Rotational core challenge."}
+       ]},
+      {name:"Tuesday",bike:"Push It • 11 mi",bikeDesc:"Beat last week's time. Compete with yourself.",lift:null},
+      {name:"Wednesday",bike:"Easy • 11 mi",bikeDesc:"Low effort. Let the legs spin.",
+       lift:"Olympic Day A",liftFocus:"Full Clean from floor • Heavier Front Squat",
+       exercises:[
+        {name:"Power Clean (from floor)",sets:"5",reps:"3",note:"Progress from hang to floor. Add 5–10 lbs from last week."},
+        {name:"Front Squat",sets:"4",reps:"4",note:"Add weight, drop one rep. Dial in the rack."},
+        {name:"Clean Pull",sets:"4",reps:"3",note:"Heavier now. Feel the hip explosion at the top."},
+        {name:"Battle Ropes",sets:"4",reps:"35s on / 25s off",note:""},
+        {name:"Toes to Bar / Hanging Knee Raise",sets:"3",reps:"10",note:"Hip flexors and core under load."}
+       ]},
+      {name:"Thursday",bike:"Moderate • 11 mi",bikeDesc:"Comfortable aerobic effort.",
+       lift:"Upper Body B",liftFocus:"Heavier push/pull • Push press up in weight",
+       exercises:[
+        {name:"Incline Bench Press",sets:"4",reps:"6",note:"Add 5 lbs. Keep form locked."},
+        {name:"Barbell Row",sets:"4",reps:"6",note:"Heavier, tighter. No energy leaks."},
+        {name:"Push Press",sets:"4",reps:"5",note:"The leg drive should be doing real work now."},
+        {name:"Battle Ropes",sets:"5",reps:"35s on / 25s off",note:""},
+        {name:"Face Pulls",sets:"3",reps:"15",note:"Same weight. This is non-negotiable for shoulder health."}
+       ]},
+      {name:"Friday",bike:"Moderate • 11 mi",bikeDesc:"Steady. Save something for the heavy work.",
+       lift:"Olympic Day B",liftFocus:"Heavier squat • Add to Clean & Jerk",
+       exercises:[
+        {name:"Back Squat",sets:"5",reps:"4",note:"Heavier than Week 1. Still 1–2 reps left in the tank."},
+        {name:"Clean & Jerk",sets:"5",reps:"2",note:"Full clean, full jerk. Add weight from last week."},
+        {name:"Romanian Deadlift",sets:"3",reps:"8",note:"Add 10 lbs."},
+        {name:"Battle Ropes Finisher",sets:"6",reps:"30s on / 30s off",note:"Add one extra round."}
+       ]}
+    ]
+  },
+  {
+    title:"Intensity Spike",
+    sub:"Push harder. This is where it changes.",
+    orb:"linear-gradient(135deg,rgba(255,69,58,.9),rgba(255,107,0,.9))",
+    glow:"rgba(255,69,58,.45)",
+    days:[
+      {name:"Monday",bike:"Moderate • 11 mi",bikeDesc:"Strong but controlled. You need the energy for the lifts.",
+       lift:"Upper Body — Heavy",liftFocus:"5×5 Bench • Heavier overhead",
+       exercises:[
+        {name:"Bench Press",sets:"5",reps:"5",note:"Heaviest week so far. Use safeties. Push hard."},
+        {name:"Overhead Press",sets:"4",reps:"5",note:"Add 5–10 lbs from Week 2."},
+        {name:"Weighted Pull-Up / Lat Pulldown",sets:"4",reps:"6",note:"Introduce back width work. Add load if possible."},
+        {name:"Battle Ropes",sets:"5",reps:"40s on / 20s off",note:"Intervals are getting harder. Hold the pace."},
+        {name:"Plank",sets:"3",reps:"45 sec",note:""}
+       ]},
+      {name:"Tuesday",bike:"Push It • 11 mi",bikeDesc:"All out effort. PR attempt.",lift:null},
+      {name:"Wednesday",bike:"Easy • 11 mi",bikeDesc:"Recovery ride. Flush the legs.",
+       lift:"Olympic Day A — Complex",liftFocus:"Clean complex: pull + clean + front squat",
+       exercises:[
+        {name:"Clean Complex",sets:"5",reps:"1 pull + 1 clean + 1 FS",note:"Treat as one continuous movement. Moderate weight."},
+        {name:"Power Clean",sets:"4",reps:"2",note:"Heavier now. Speed under the bar is the focus."},
+        {name:"Front Squat",sets:"3",reps:"3",note:"Heavy. Elbows must stay up the entire way."},
+        {name:"Battle Ropes",sets:"4",reps:"40s on / 20s off",note:""},
+        {name:"GHD Sit-Up / V-Up",sets:"3",reps:"12",note:""}
+       ]},
+      {name:"Thursday",bike:"Moderate • 11 mi",bikeDesc:"Hold a strong pace.",
+       lift:"Upper Body B — Heavy",liftFocus:"Incline + rows + push press up",
+       exercises:[
+        {name:"Incline Bench Press",sets:"5",reps:"5",note:"Heaviest yet."},
+        {name:"Pendlay Row",sets:"4",reps:"5",note:"Dead stop from the floor every rep. Explosive pull."},
+        {name:"Push Press",sets:"4",reps:"4",note:"Heavier. You're approaching jerk territory now."},
+        {name:"Battle Ropes",sets:"6",reps:"35s on / 25s off",note:""},
+        {name:"Band Pull-Apart",sets:"3",reps:"20",note:"Shoulder care. Do not skip this."}
+       ]},
+      {name:"Friday",bike:"Moderate • 11 mi",bikeDesc:"Steady. Big lift day ahead.",
+       lift:"Olympic Day B — Heavy",liftFocus:"Heavy squat • Clean & Jerk near-max",
+       exercises:[
+        {name:"Back Squat",sets:"5",reps:"3",note:"Work up to a near-heavy triple. Record this weight."},
+        {name:"Clean & Jerk",sets:"6",reps:"1–2",note:"Build to a heavy single or double. Don't miss a rep."},
+        {name:"Clean Pull",sets:"4",reps:"3",note:"110% of your clean weight. Overload the pull."},
+        {name:"Romanian Deadlift",sets:"3",reps:"6",note:"Heavier than before. Slow, deep negative."},
+        {name:"Battle Ropes Finisher",sets:"6",reps:"30s on / 30s off",note:""}
+       ]}
+    ]
+  },
+  {
+    title:"Deload & Sharpen",
+    sub:"Back off. Let the body absorb the work.",
+    orb:"linear-gradient(135deg,rgba(48,209,88,.9),rgba(90,200,250,.9))",
+    glow:"rgba(48,209,88,.4)",
+    days:[
+      {name:"Monday",bike:"Easy • 11 mi",bikeDesc:"Low effort. Conversational pace. Recover.",
+       lift:"Upper Body — Light",liftFocus:"Drop to 70% of Week 3 weights",
+       exercises:[
+        {name:"Bench Press",sets:"3",reps:"5",note:"70% of Week 3 weight. Move the bar fast. Feel good."},
+        {name:"Overhead Press",sets:"3",reps:"6",note:"Light and crisp. No grinding."},
+        {name:"Barbell Row",sets:"3",reps:"8",note:"Moderate weight, perfect form."},
+        {name:"Battle Ropes",sets:"3",reps:"30s on / 30s off",note:"Back to Week 1 volume. Easy."},
+        {name:"Core of Choice",sets:"3",reps:"30 sec",note:"Plank, hollow body — whatever feels right today."}
+       ]},
+      {name:"Tuesday",bike:"Moderate • 11 mi",bikeDesc:"Not all-out this week. Steady is the goal.",lift:null},
+      {name:"Wednesday",bike:"Easy • 11 mi",bikeDesc:"Spin easy. Active recovery.",
+       lift:"Olympic Day A — Technique",liftFocus:"Light cleans • Movement quality over load",
+       exercises:[
+        {name:"Hang Power Clean",sets:"5",reps:"3",note:"Back to hang. 50–60%. Perfect positions only this week."},
+        {name:"Front Squat",sets:"3",reps:"5",note:"Moderate. Focus on the rack position and depth."},
+        {name:"Clean Pull",sets:"3",reps:"3",note:"Light. Exaggerate the bar path. Make it perfect."},
+        {name:"Battle Ropes",sets:"3",reps:"30 sec",note:""},
+        {name:"Mobility Work",sets:"1",reps:"10 min",note:"Hip flexors, thoracic spine, ankles. Invest in this now."}
+       ]},
+      {name:"Thursday",bike:"Moderate • 11 mi",bikeDesc:"Easy aerobic. Nothing heroic.",
+       lift:"Upper Body B — Light",liftFocus:"Same lifts • 70% weight • Extra reps",
+       exercises:[
+        {name:"Incline Bench Press",sets:"3",reps:"8",note:"Light. Get a pump. Move well."},
+        {name:"Barbell Row",sets:"3",reps:"10",note:"Smooth, controlled reps."},
+        {name:"Push Press",sets:"3",reps:"6",note:"Speed reps. Light bar, fast movement."},
+        {name:"Battle Ropes",sets:"4",reps:"30s on / 30s off",note:""},
+        {name:"Face Pulls",sets:"3",reps:"15",note:""}
+       ]},
+      {name:"Friday",bike:"Easy • 11 mi",bikeDesc:"Shake the legs out. Light day.",
+       lift:"Olympic Day B — Light",liftFocus:"Touch the heavy movements • Stay fresh",
+       exercises:[
+        {name:"Back Squat",sets:"3",reps:"5",note:"70% of Week 3. Move with confidence."},
+        {name:"Clean & Jerk",sets:"4",reps:"2",note:"70%. Perfect reps only. No grinding whatsoever."},
+        {name:"Romanian Deadlift",sets:"3",reps:"8",note:"Light. Stretch those hamstrings."},
+        {name:"Battle Ropes",sets:"3",reps:"30 sec",note:"Easy finish. See you Week 5."}
+       ]}
+    ]
+  },
+  {
+    title:"Peak & Test",
+    sub:"Find your new maxes. See what you have built.",
+    orb:"linear-gradient(135deg,rgba(191,90,242,.9),rgba(255,69,58,.9))",
+    glow:"rgba(191,90,242,.45)",
+    days:[
+      {name:"Monday",bike:"Moderate • 11 mi",bikeDesc:"Strong pace. Fired up.",
+       lift:"Upper Body — Heavy Opener",liftFocus:"Work up to 3RM on bench",
+       exercises:[
+        {name:"Bench Press",sets:"5",reps:"Build to 3RM",note:"Warm up thoroughly. Work up over 5 sets to the heaviest clean triple you can hit."},
+        {name:"Overhead Press",sets:"4",reps:"4",note:"Heavier than any previous week."},
+        {name:"Pull-Up / Lat Pulldown",sets:"4",reps:"6",note:"Weighted if possible."},
+        {name:"Battle Ropes",sets:"5",reps:"40s on / 20s off",note:"Peak conditioning. Hold every interval."},
+        {name:"Plank",sets:"3",reps:"1 min",note:""}
+       ]},
+      {name:"Tuesday",bike:"Time Trial • 11 mi",bikeDesc:"Record your best time of the entire program.",lift:null},
+      {name:"Wednesday",bike:"Easy • 11 mi",bikeDesc:"Save your legs. Big clean day.",
+       lift:"Olympic Day A — Heavy",liftFocus:"Heavy clean singles • Front squat PR",
+       exercises:[
+        {name:"Power Clean",sets:"6–8",reps:"1",note:"Build to a heavy single. This is your PR attempt. Take your time."},
+        {name:"Front Squat",sets:"3",reps:"3",note:"Heaviest front squat of the entire cycle."},
+        {name:"Clean Pull",sets:"4",reps:"2",note:"Max pull weight. Full hip explosion."},
+        {name:"Battle Ropes",sets:"4",reps:"40s on / 20s off",note:""},
+        {name:"Core",sets:"3",reps:"30 sec",note:""}
+       ]},
+      {name:"Thursday",bike:"Moderate • 11 mi",bikeDesc:"One more strong ride.",
+       lift:"Upper Body B — Heavy",liftFocus:"Peak pressing and rows",
+       exercises:[
+        {name:"Incline Bench Press",sets:"4",reps:"4",note:"Heaviest incline of the entire cycle."},
+        {name:"Pendlay Row",sets:"4",reps:"4",note:"Explosive. Heaviest row of the program."},
+        {name:"Push Press",sets:"4",reps:"3",note:"Approach your 3RM push press."},
+        {name:"Battle Ropes",sets:"6",reps:"35s on / 25s off",note:""},
+        {name:"Band Pull-Apart",sets:"3",reps:"20",note:""}
+       ]},
+      {name:"Friday",bike:"Easy • 11 mi",bikeDesc:"Save the legs completely for the lifting.",
+       lift:"Olympic Day B — PR Day",liftFocus:"Back squat + Clean & Jerk max",
+       exercises:[
+        {name:"Back Squat",sets:"6–8",reps:"Build to 1–3RM",note:"This is your squat test. Warm up properly. Record your maximum."},
+        {name:"Clean & Jerk",sets:"6–8",reps:"1",note:"Your best Clean & Jerk of the entire cycle. Make it count."},
+        {name:"Clean Pull",sets:"3",reps:"2",note:"Heavy. Feel how strong you've become."},
+        {name:"Battle Ropes Finisher",sets:"5",reps:"30s on / 30s off",note:"You earned this. Finish strong."}
+       ]}
+    ]
+  }
+];
+
+var DAY_LETTERS = ["M","T","W","T","F"];
+var DAY_ABBR    = ["MON","TUE","WED","THU","FRI"];
+
+// State
+var wi = 0, di = 0;
+var openEx   = {};
+var weights  = {};
+var bikeLogs = {};
+
+(function(){
+  try {
+    var s = JSON.parse(localStorage.getItem("hbshred3") || "{}");
+    wi       = s.wi       || 0;
+    di       = s.di       || 0;
+    openEx   = s.openEx   || {};
+    weights  = s.weights  || {};
+    bikeLogs = s.bikeLogs || {};
+  } catch(e){}
+})();
+
+function persist(){
+  try {
+    localStorage.setItem("hbshred3", JSON.stringify({wi:wi,di:di,openEx:openEx,weights:weights,bikeLogs:bikeLogs}));
+  } catch(e){}
+  var p = document.getElementById("syncPill");
+  if(p) p.textContent = "Saved";
+}
+
+function esc(s){
+  return String(s||"")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;");
+}
+
+function render(){
+  var wk  = PROGRAM[wi];
+  var day = wk.days[di];
+
+  // Week chips
+  var ws = document.getElementById("weekScroll");
+  var wh = "";
+  for(var i=0;i<PROGRAM.length;i++){
+    wh += '<div class="week-chip'+(i===wi?" active":"")+'" onclick="setWeek('+i+')">W'+(i+1)+' \u00B7 '+PROGRAM[i].title+'</div>';
+  }
+  ws.innerHTML = wh;
+
+  // Hero
+  document.getElementById("heroTag").textContent   = "Week "+(wi+1);
+  document.getElementById("heroTitle").innerHTML   = esc(wk.title);
+  document.getElementById("heroSub").innerHTML     = wk.sub;
+  document.getElementById("heroOrb").style.background  = wk.orb;
+  document.getElementById("heroOrb").style.boxShadow   = "0 0 40px "+wk.glow;
+
+  // Progress
+  var total=0, filled=0;
+  for(var d=0;d<wk.days.length;d++){
+    var ex = wk.days[d].exercises;
+    if(!ex) continue;
+    for(var e=0;e<ex.length;e++){
+      total++;
+      if(weights["w"+wi+"d"+d+"e"+e]) filled++;
+    }
+  }
+  var pct = total ? Math.round(filled/total*100) : 0;
+  document.getElementById("progBar").style.width  = pct+"%";
+  document.getElementById("progLabel").textContent = pct+"%";
+
+  // Day tabs
+  var dt = document.getElementById("dayTabs");
+  var dh = "";
+  for(var j=0;j<wk.days.length;j++){
+    dh += '<div class="day'+(j===di?" active":"")+'" onclick="setDay('+j+')">'
+        + '<div class="day-letter">'+DAY_LETTERS[j]+'</div>'
+        + '<div class="day-full">'+DAY_ABBR[j]+'</div>'
+        + '</div>';
+  }
+  dt.innerHTML = dh;
+
+  // Day content
+  document.getElementById("dayContent").innerHTML = buildDay(day);
+}
+
+function buildDay(day){
+  var bkey = "b"+wi+"_"+di;
+  var html = "";
+
+  // Bike card
+  html += '<div class="glass section">'
+        + '<div class="section-label">&#128690; Morning Ride</div>'
+        + '<div class="section-title">'+esc(day.bike)+'</div>'
+        + '<div class="section-sub">'+esc(day.bikeDesc)+'</div>'
+        + '<input class="input" placeholder="Ride notes or time..." value="'+esc(bikeLogs[bkey]||"")+'" oninput="saveBike(\''+bkey+'\',this.value)">'
+        + '</div>';
+
+  // Rest day
+  if(!day.lift){
+    html += '<div class="glass section">'
+          + '<div class="rest-card">'
+          + '<div class="rest-emoji">&#128164;</div>'
+          + '<div class="rest-title">Rest Day</div>'
+          + '<div class="rest-sub">Tuesday is your hardest bike day.<br>Let it rip on the trail. No lifting needed.</div>'
+          + '</div></div>';
+    return html;
+  }
+
+  // Lift card
+  html += '<div class="glass section">'
+        + '<div class="section-label">&#127947; Strength Session</div>'
+        + '<div class="section-title">'+esc(day.lift)+'</div>'
+        + '<div class="section-sub">'+esc(day.liftFocus)+'</div>';
+
+  for(var i=0;i<day.exercises.length;i++){
+    var ex   = day.exercises[i];
+    var ekey = "w"+wi+"d"+di+"e"+i;
+    var xkey = wi+"_"+di+"_"+i;
+    var open = !!openEx[xkey];
+    var wval = weights[ekey]||"";
+
+    html += '<div class="exercise" onclick="toggleEx(\''+xkey+'\')">'
+          + '<div class="exercise-header">'
+          + '<div class="exercise-name">'+esc(ex.name)+'</div>'
+          + '<div class="expand-icon">'+(open?"&#8722;":"&#43;")+'</div>'
+          + '</div>'
+          + '<div class="badges">'
+          + '<span class="badge badge-blue">'+esc(ex.sets)+' Sets</span>'
+          + '<span class="badge">'+esc(ex.reps)+'</span>'
+          + (wval?'<span class="badge badge-green">&#9878; '+esc(wval)+'</span>':"")
+          + '</div>';
+
+    if(open){
+      html += (ex.note?'<div class="note">'+esc(ex.note)+'</div>':"")
+            + '<input class="input" placeholder="Weight used — e.g. 135 lbs, felt strong" value="'+esc(wval)+'" '
+            + 'oninput="saveWeight(\''+ekey+'\',this.value)" onclick="event.stopPropagation()">';
+    }
+
+    html += '</div>';
+  }
+
+  html += '</div>';
+  return html;
+}
+
+function setWeek(i){ wi=i; di=0; persist(); render(); }
+function setDay(i) { di=i; persist(); render(); }
+
+function toggleEx(k){
+  openEx[k] = !openEx[k];
+  persist(); render();
+}
+
+function saveBike(k,v)  { bikeLogs[k]=v; persist(); }
+function saveWeight(k,v){ weights[k]=v;  persist(); render(); }
+
+render();
 </script>
 </body>
 </html>
