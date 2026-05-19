@@ -681,6 +681,23 @@ body::before{
   </div>
 
 </div>
+<script>
+  // Days
+  document.querySelectorAll('.day').forEach(day => {
+    day.addEventListener('click', () => {
+      document.querySelectorAll('.day').forEach(d => d.classList.remove('active'));
+      day.classList.add('active');
+    });
+  });
 
+  // Dock navigation (simple alert for now)
+  document.querySelectorAll('.dock-item').forEach(item => {
+    item.addEventListener('click', () => {
+      document.querySelectorAll('.dock-item').forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      alert('Switched to: ' + item.textContent.trim());
+    });
+  });
+</script>
 </body>
 </html>
